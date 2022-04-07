@@ -16,7 +16,16 @@ class Board():
         self.fill_fish(amount_of_fish)
         
     def roll_dice(self):
-        print(self.game_dice.roll())
+        result = self.game_dice.roll()
+        if (result == -1):
+            self.boat_position += 1
+            if (self.boat_position == self.save_position - 1):
+                self.end_game()
+        else:
+            self.all_fish[result].move(1)
+            if (self.all_fish[result].position == self.save_position\
+                and self.all_fish[result].state == 1):
+                self.all_fish[result].save()
         
     def fill_fish(self, amount_of_fish):
         for i in range (amount_of_fish):
@@ -30,7 +39,8 @@ class Board():
                 
     
     def end_game(self):
-        pass
+        for i in range(len(self.all_fish)):
+            print(self.all_fish[i].to_string())
     
     
     
@@ -39,5 +49,5 @@ board = Board(6,5,10,2)
     
 print(board.to_string())
 
-for i in range(len(board.all_fish)):
-    print(board.all_fish[i].to_string())
+for i in range(2000):
+    board.roll_dice()
