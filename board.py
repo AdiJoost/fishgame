@@ -9,7 +9,6 @@ class Board():
     
     def __init__ (self, amount_of_fish, start_position, save_position,\
                   amount_of_fisher):
-        self.amount_of_fish = amount_of_fish
         self.start_position = start_position
         self.save_position = save_position
         self.game_dice = dice.Dice(amount_of_fish, amount_of_fisher)
@@ -19,8 +18,9 @@ class Board():
     
     def to_string(self):
         return f"***BOARD***\n"\
-                f"Amount of fish: {len(self.all_fish)}"\
-                    
+                f"Amount of fish: {len(self.all_fish)}\n"\
+                f"start_position: {self.start_position}\n"\
+                f"save_position: {self.save_position}"
     
     def end_game(self):
         pass
@@ -29,5 +29,7 @@ class Board():
     
 board = Board(6,5,10,2)
 
-for i in range (100):
+for i in range (5):
     board.roll_dice()
+    
+print(board.to_string())
