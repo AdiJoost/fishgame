@@ -17,6 +17,9 @@ class Fish:
         
     def save (self):
         self.state = 2
+    
+    def move(self, amount):
+        self.position += amount
         
     def to_string (self):
         my_state = "free"
