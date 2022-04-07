@@ -18,7 +18,9 @@ class Board():
         print(self.game_dice.roll())
     
     def to_string(self):
-        pass
+        return f"***BOARD***\n"\
+                f"Amount of fish: {len(self.all_fish)}"\
+                    
     
     def end_game(self):
         pass
