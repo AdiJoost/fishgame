@@ -29,5 +29,5 @@ class Fish:
             my_state = "saved"
         return f"**************\nname:{self.name}\n"\
                 f"At position: {self.position}\n"\
-                f"State:{my_state}\n**************"
+                f"State:{my_state}"
         

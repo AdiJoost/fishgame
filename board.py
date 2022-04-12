@@ -22,10 +22,14 @@ class Board():
             if (self.boat_position == self.save_position - 1):
                 self.end_game()
         else:
-            self.all_fish[result].move(1)
-            if (self.all_fish[result].position == self.save_position\
-                and self.all_fish[result].state == 1):
-                self.all_fish[result].save()
+            if (self.all_fish[result].position <= self.boat_position):
+                self.all_fish[result].catch()
+            else:
+                self.all_fish[result].move(1)
+                if (self.all_fish[result].position == self.save_position\
+                    and self.all_fish[result].state == 1):
+                    self.all_fish[result].save()
+            
         
     def fill_fish(self, amount_of_fish):
         for i in range (amount_of_fish):
@@ -37,17 +41,25 @@ class Board():
                 f"start_position: {self.start_position}\n"\
                 f"save_position: {self.save_position}"
                 
+    def start_game(self):
+        while (self.boat_position < self.save_position):
+            self.roll_dice()
+        for my_fish in self.all_fish:
+            if (my_fish.state != 2):
+                my_fish.catch()
+        self.end_game() 
+                
     
     def end_game(self):
-        for i in range(len(self.all_fish)):
-            print(self.all_fish[i].to_string())
+        print(self.get_fish())
+    
+    def get_fish(self):
+        return_value = []
+        for my_fish in self.all_fish:
+            return_value.append((my_fish.name, my_fish.position, my_fish.state))
+        return return_value
+        
+    def get_state(self):
+        pass
     
     
-    
-board = Board(6,5,10,2)
-
-    
-print(board.to_string())
-
-for i in range(2000):
-    board.roll_dice()
