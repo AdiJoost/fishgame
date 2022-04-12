@@ -44,14 +44,15 @@ class Board():
     def start_game(self):
         while (self.boat_position < self.save_position):
             self.roll_dice()
-        for my_fish in self.all_fish:
-            if (my_fish.state != 2):
-                my_fish.catch()
-        self.end_game() 
+
+        return self.end_game() 
                 
     
     def end_game(self):
-        print(self.get_fish())
+        for my_fish in self.all_fish:
+            if (my_fish.state != 2):
+                my_fish.catch()
+        return self.get_fish()
     
     def get_fish(self):
         return_value = []
@@ -60,6 +61,17 @@ class Board():
         return return_value
         
     def get_state(self):
-        pass
+        caught_fish = 0
+        saved_fish = 0
+        free_fish = 0
+        for my_fish in self.all_fish:
+            if my_fish.state == 0:
+                caught_fish += 1
+            elif my_fish.state == 1:
+                free_fish += 1
+            else:
+                saved_fish += 1
+        return (len(self.all_fish), self.boat_position, caught_fish,\
+                free_fish, saved_fish)
     
     
