@@ -5,7 +5,7 @@ class Fish:
     #status 0 = caught, 1 = free, 2 = saved
     state = 1
     
-    def __init__ (self, name, position):
+    def __init__ (self, name: str, position: int):
         self.name = name
         self.position = position
         
@@ -21,7 +21,7 @@ class Fish:
     def move(self, amount):
         self.position += amount
         
-    def to_string (self):
+    def to_string (self) -> str:
         my_state = "free"
         if (self.state == 0):
             my_state = "caught"
