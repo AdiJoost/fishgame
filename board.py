@@ -2,6 +2,13 @@ import fish
 import dice
 
 class Board():
+    """This class is a Board, wich controlls the game played on it
+    
+    The Board will create a Fisherboat with a specific amount of fisher. It
+    will also create all independent fish and holds them in the all_fish-
+    variable. The Board will get a dice according to the amount of 
+    players in the game.
+    """
     all_fish = []
     start_position = 1
     save_position = 10
@@ -42,6 +49,10 @@ class Board():
                 f"save_position: {self.save_position}"
                 
     def start_game(self) -> list:
+        """This will start the Board an plays the game until the fisher
+        have arrived at the save zone. Then the function will evaluate
+        the outcome of the game by using self.end_game(). It will
+        return the list of all fish that played in the game"""
         while (self.boat_position < self.save_position):
             self.roll_dice()
 
