@@ -40,6 +40,8 @@ class Board():
             
         
     def fill_fish(self, amount_of_fish: int):
+        #clear the list of fish, before filling new fish
+        self.all_fish = []
         for i in range (amount_of_fish):
             self.all_fish.append(fish.Fish(f"Fish {i}", self.start_position))
     
@@ -47,7 +49,8 @@ class Board():
         return f"***BOARD***\n"\
                 f"Amount of fish: {len(self.all_fish)}\n"\
                 f"start_position: {self.start_position}\n"\
-                f"save_position: {self.save_position}"
+                f"save_position: {self.save_position}\n"\
+                f"boat_position: {self.boat_position}"
                 
     def start_game(self) -> list:
         """This will start the Board an plays the game until the fisher

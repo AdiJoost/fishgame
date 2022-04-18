@@ -36,11 +36,13 @@ my_path = "games_played/"
 header = ("all_fish", "boat_position","caught_fish", "free_fish", "saved_fish")
 
 
+for i in range(1, 10):
+    my_values["start_position"] = i
+    for _ in range(100):
+        my_board = Board(**my_values)
+        my_board.start_game()
+        write_to_csv(my_board, **my_values)
+    print("100 games played")
 
-my_board = Board(**my_values)
-    
-my_board.start_game()
-print(my_board.get_state())
 
-write_to_csv(my_board, **my_values)
 
