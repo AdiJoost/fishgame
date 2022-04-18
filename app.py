@@ -6,7 +6,7 @@ import os
 def write_to_csv ():
     #path to csv-file
     file_path = my_path + f"{amount_of_fish}{start_position}{save_position}"\
-           f"{amount_of_fisher}{int(hard_mode)}"
+           f"{amount_of_fisher}{int(hard_mode)}" + ".csv" 
            
     #if file doesn't exist, create it and write headers
     if not (os.path.isfile(file_path)):
