@@ -15,14 +15,14 @@ def write_to_csv (my_board, amount_of_fish,start_position,save_position,amount_o
     
             writer = csv.writer(f)
             writer.writerow(header)
-            print("Row written")
+            
     
     #opens csv and writes results on it
     with open (file_path, "a", encoding="UTF-8", newline='') as f:
     
         writer = csv.writer(f)
         writer.writerow(my_board.get_state())
-        print("Row written")
+        
 
 my_values = {
                 "amount_of_fish": 4,
@@ -36,13 +36,13 @@ my_path = "games_played/"
 header = ("all_fish", "boat_position","caught_fish", "free_fish", "saved_fish")
 
 
-for i in range(1, 10):
+for i in range(1, 11):
     my_values["start_position"] = i
-    for _ in range(100):
+    for _ in range(1000):
         my_board = Board(**my_values)
         my_board.start_game()
         write_to_csv(my_board, **my_values)
-    print("100 games played")
+    print("1000 games played")
 
 
 

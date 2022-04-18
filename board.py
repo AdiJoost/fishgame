@@ -14,6 +14,10 @@ class Board():
         save_position (int where fish are safe)
         boat_position (int where the boat is (always 0 at start))
         game_dice (dice-object for board)
+        
+    Added note: IF the start_position of the fish is equal or bigger
+    than the save_position, all fish will be caught, because they never
+    reach the save_position itself. (They are already pass)
     """
     
     def __init__ (self, amount_of_fish: int, start_position: int,\
