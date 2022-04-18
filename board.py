@@ -72,6 +72,9 @@ class Board():
         return return_value
         
     def get_state(self) -> tuple:
+        """Returns the state of the game as a tuple: (all_fish, boat_position,
+        caught_fish, free_fish, saved_fish.)\n
+        If the game has ended, free_fish should always be 0"""
         caught_fish = 0
         saved_fish = 0
         free_fish = 0
