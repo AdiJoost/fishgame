@@ -7,13 +7,14 @@ class Board():
     The Board will create a Fisherboat with a specific amount of fisher. It
     will also create all independent fish and holds them in the all_fish-
     variable. The Board will get a dice according to the amount of 
-    players in the game.
+    players in the game. The instance of the class holds:
+        
+        all_fish (list with all fish)
+        start_position (int where fish start)
+        save_position (int where fish are safe)
+        boat_position (int where the boat is (always 0 at start))
+        game_dice (dice-object for board)
     """
-    all_fish = []
-    start_position = 1
-    save_position = 10
-    boat_position = 0
-    game_dice = -1
     
     def __init__ (self, amount_of_fish: int, start_position: int,\
                   save_position: int, amount_of_fisher: int,
@@ -21,6 +22,7 @@ class Board():
         self.start_position = start_position
         self.save_position = save_position
         self.game_dice = dice.Dice(amount_of_fish, amount_of_fisher)
+        self.boat_position = 0
         self.fill_fish(amount_of_fish)
         
     def roll_dice(self):
