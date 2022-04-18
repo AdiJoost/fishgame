@@ -16,7 +16,8 @@ class Board():
     game_dice = -1
     
     def __init__ (self, amount_of_fish: int, start_position: int,\
-                  save_position: int, amount_of_fisher: int):
+                  save_position: int, amount_of_fisher: int,
+                  hard_mode: bool):
         self.start_position = start_position
         self.save_position = save_position
         self.game_dice = dice.Dice(amount_of_fish, amount_of_fisher)
