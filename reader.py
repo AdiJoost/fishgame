@@ -14,10 +14,13 @@ def evaluate_catchrate(header, data):
     games_played = len(data)
     amount_of_fish = data[0][0]
     catch_list = {}
+    #creates an entry for each possible amount of caught fish (catch_list[i]
+    #== i caught fish)
     for i in range(int(amount_of_fish) + 1):
         catch_list[i] = 0
     for row in data:
         catch_list[int(row[2])] += 1
+    
     return games_played, amount_of_fish, catch_list
 
 
