@@ -2,6 +2,15 @@ from board import Board
 import csv
 import os
 
+def main():
+    for i in range(1, 11):
+        my_values["start_position"] = i
+        for _ in range(80000):
+            my_board = Board(**my_values)
+            my_board.start_game()
+            write_to_csv(my_board, **my_values)
+        print("10000 games played")
+
 
 def write_to_csv (my_board, amount_of_fish,start_position,save_position,
                   amount_of_fisher,
@@ -36,14 +45,10 @@ my_values = {
 my_path = "games_played/"
 header = ("all_fish", "boat_position","caught_fish", "free_fish", "saved_fish")
 
+if __name__ == "__main__":
+    main()
 
-for i in range(1, 11):
-    my_values["start_position"] = i
-    for _ in range(10000):
-        my_board = Board(**my_values)
-        my_board.start_game()
-        write_to_csv(my_board, **my_values)
-    print("1000 games played")
+
 
 
 

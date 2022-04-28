@@ -1,5 +1,22 @@
 import csv
 
+def main():
+    head_path = "games_played/"
+    amount_of_fish = 4
+    save_position = 10
+    amount_of_fisher = 2
+    hard_mode = False
+    start_position = 1
+    for i in range(1, 11):
+        
+        my_path = create_path(head_path, amount_of_fish, i, save_position, amount_of_fisher, hard_mode)
+    
+        header, data = read_file(my_path)
+    
+        games_played, amount_of_fish, catch_list = evaluate_catchrate(header, data)
+
+        print(catch_list)
+
 def read_file (my_path):
     with open(my_path, "r", encoding="utf-8") as file:
         csv_reader = csv.reader(file)
@@ -29,19 +46,8 @@ def create_path (head_path, amount_of_fish, start_position,
            f"{amount_of_fisher}{int(hard_mode)}" + ".csv" 
 
 #
-head_path = "games_played/"
-amount_of_fish = 4
-save_position = 10
-amount_of_fisher = 2
-hard_mode = False
-start_position = 1
 
-my_path = create_path(head_path, amount_of_fish, start_position, save_position, amount_of_fisher, hard_mode)
 
-header, data = read_file(my_path)
+if __name__ == "__main__":
+    main()
 
-games_played, amount_of_fish, catch_list = evaluate_catchrate(header, data)
-
-print(games_played)
-print(amount_of_fish)
-print(catch_list)
