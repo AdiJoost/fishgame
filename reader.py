@@ -23,8 +23,20 @@ def evaluate_catchrate(header, data):
     
     return games_played, amount_of_fish, catch_list
 
+def create_path (head_path, amount_of_fish, start_position,
+                 save_position, amount_of_fisher, hard_mode):
+    return head_path + f"{amount_of_fish}{start_position}{save_position}"\
+           f"{amount_of_fisher}{int(hard_mode)}" + ".csv" 
 
-my_path = "games_played/411020.csv"
+#
+head_path = "games_played/"
+amount_of_fish = 4
+save_position = 10
+amount_of_fisher = 2
+hard_mode = False
+start_position = 1
+
+my_path = create_path(head_path, amount_of_fish, start_position, save_position, amount_of_fisher, hard_mode)
 
 header, data = read_file(my_path)
 

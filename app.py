@@ -3,7 +3,8 @@ import csv
 import os
 
 
-def write_to_csv (my_board, amount_of_fish,start_position,save_position,amount_of_fisher,
+def write_to_csv (my_board, amount_of_fish,start_position,save_position,
+                  amount_of_fisher,
                   hard_mode):
     #path to csv-file
     file_path = my_path + f"{amount_of_fish}{start_position}{save_position}"\
@@ -38,7 +39,7 @@ header = ("all_fish", "boat_position","caught_fish", "free_fish", "saved_fish")
 
 for i in range(1, 11):
     my_values["start_position"] = i
-    for _ in range(1000):
+    for _ in range(10000):
         my_board = Board(**my_values)
         my_board.start_game()
         write_to_csv(my_board, **my_values)
